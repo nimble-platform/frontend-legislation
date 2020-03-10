@@ -55,3 +55,12 @@ git remote add origin https://github.com/nimble-platform/frontend-legislation.gi
 git push -u origin master
 
 https://github.com/nimble-platform/frontend-legislation
+
+update on Github
+----------------
+git init
+git add .
+git commit -m "commit 2200310"
+git remote add origin remote repository https://github.com/nimble-platform/frontend-legislation.git
+git remote -v
+git push -f origin master

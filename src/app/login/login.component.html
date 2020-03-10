@@ -1,0 +1,60 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<div class="row col-10 mx-auto" style="padding-top: 20vh;">
+    <p class="col-12 nimble-title" [innerHTML]="'Login' | translate">Login</p>
+</div>
+
+<form class="space-before ng-untouched ng-pristine ng-invalid" (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+
+    <div class="form-group row col-10 mx-auto">
+        <label class="col-3 col-form-label font-weight-bold" for="email" [innerHTML]="'E-Mail' | translate"></label>
+        <div class="col-9">
+            <input class="form-control" formControlName="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-z]{2,3}$" required type="email">
+        </div>
+    </div>
+    
+    <div class="form-group row col-10 mx-auto">
+        <label class="col-3 col-form-label font-weight-bold" for="password" [innerHTML]="'Password' | translate"></label>
+        <div class="col-9">
+            <input class="form-control" formControlName="password" pattern=".{6,}" required type="password">
+        </div>
+    </div>
+
+    
+    <div class="row col-12 actions-row">
+
+        <div class="col-9 call-status-col">
+            <div ng-reflect-hidden="true" hidden="">
+                <img class="space-before" src="assets/images/form_loader.gif">
+            </div>
+
+            <div *ngIf="errorMsg" id="alert-error" class="d-flex alert-danger p-2 pr-4 rounded position-relative mb-1">
+                <div class="align-self-center" role="alert">
+                    {{ errorMsg }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <button class="btn btn-primary action" type="submit" [disabled]="!form.valid" [innerHTML]="'Submit' | translate"></button>
+        </div>
+    </div>
+
+    
+    <div class="row col-11 space-before">
+        <div class="col-12 d-flex flex-row-reverse">
+<!-- 				<a class="mx-left" target="_blank" href="http://nimble-staging.salzburgresearch.at:8080/auth/realms/master/login-actions/reset-credentials?client_id=nimble_client">Forgot your password?</a> -->
+            <a class="mx-left" target="_blank" ui-sref="registration" [routerLink]="" (click)="false">
+                <span [innerHTML]="'Not yet registered' | translate"></span>?
+            </a>
+        </div>
+    </div>
+    
+    
+    <!--<div id="alert-error" class="alert alert-danger space-before collapse" role="alert">{{msg}}</div>
+    <div id="alert-success" class="alert alert-success space-before collapse" role="alert">{{msg}}</div>-->
+    <p *ngFor="let alert of alerts">
+        <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" [innerHTML]="alert_msg | translate"></ngb-alert>
+    </p>
+
+</form>

@@ -1,14 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html>
+
 <head>
   <meta charset="utf-8">
-  <title>FrontendLegislation</title>
-  <base href="/">
+  <title>AIDIMME Regulation and Legislation System - Frontend</title>
+  <base href="./">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script>
+    var locale = navigator.language || navigator.userLanguage;
+    if (locale.length > 2)
+        locale = locale.substr(0, 2);
+    document.locale = locale;
+</script>
+<!--<script src="lib/bpe/js/webfont.js"></script>-->
+
 </head>
 <body>
-  <app-root></app-root>
+  <div class="container-fluid">
+    <legislation-app>
+      <center>
+        <div id="sk-loading-icon">
+          <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+          </div>
+        </div>
+      </center>
+      <div style="position:absolute;width:90%;padding-left:10%;left:0;bottom:1rem;">
+        <center>
+          <small>
+              In case you are experiencing errors loading this page:<br/>
+              This platform has only been developed for and tested on Chrome and Firefox.
+          </small>
+        </center>
+      </div>
+    </legislation-app>
+  </div>
 </body>
+
 </html>
